@@ -6,7 +6,7 @@
 
 ---
 
-## 📌 Project Overview
+## Project Overview
 
 This project focuses on the **design and functional verification of a parameterized Asynchronous FIFO (First-In, First-Out)** using SystemVerilog.
 
@@ -14,7 +14,7 @@ An asynchronous FIFO enables reliable data transfer between two independent cloc
 
 The FIFO is verified using a class-based SystemVerilog testbench that combines directed testing, constrained-random stimulus, embedded SystemVerilog Assertions (SVA), a queue-based reference model, a scoreboard, and functional coverage.
 
-### 🎯 Verification Objectives
+### Verification Objectives
 
 - Verify correct FIFO write and read functionality.
 - Ensure FIFO ordering and end-to-end data integrity.
@@ -27,7 +27,7 @@ The FIFO is verified using a class-based SystemVerilog testbench that combines d
 
 ---
 
-## ⚙️ Design Specifications
+## Design Specifications
 
 ### Configuration Parameters
 
@@ -83,7 +83,7 @@ The asynchronous FIFO uses the following techniques:
 
 ---
 
-## 🏗️ Verification Testbench Architecture
+## Verification Testbench Architecture
 
 The testbench combines static SystemVerilog modules and interfaces with class-based verification components.
 
@@ -253,7 +253,7 @@ The testbench supports the following 16 test scenarios.
 
 ---
 
-## 🎲 Constrained-Random Verification
+## Constrained-Random Verification
 
 After basic directed tests pass, constrained-random testing increases scenario diversity.
 
@@ -406,7 +406,7 @@ Coverage closure should be confirmed from the actual simulator coverage report r
 
 ---
 
-## 🗂️ Project Structure
+## Project Structure
 
 The following file structure is based on the provided file list and component names.
 
@@ -448,7 +448,7 @@ async_fifo_verif/
 
 ---
 
-## ▶️ Running the Tests
+## Running the Tests
 
 ### Test Selection
 
@@ -520,7 +520,7 @@ The top-level screenshot shows `$dumpfile("fifo_waveform.fsdb")` and `$dumpvars(
 
 ---
 
-## ✅ Expected Verification Results
+## Expected Verification Results
 
 A successful verification campaign should demonstrate:
 
@@ -539,7 +539,7 @@ A successful verification campaign should demonstrate:
 
 ---
 
-## 🧠 Key Concepts Demonstrated
+## Key Concepts Demonstrated
 
 This project brings together several important digital design and verification concepts:
 
@@ -558,7 +558,7 @@ This project brings together several important digital design and verification c
 
 ---
 
-## 📌 Conclusion
+## Conclusion
 
 This project provides a structured approach to verifying an asynchronous FIFO using SystemVerilog. By combining directed scenarios, constrained-random traffic, assertions, reference-model checking, and functional coverage, the testbench is designed to detect functional errors, data-integrity issues, pointer-handling bugs, and corner-case failures across independent clock domains.
 
