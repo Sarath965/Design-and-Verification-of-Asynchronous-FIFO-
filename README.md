@@ -338,8 +338,3 @@ Correct pointer wraparound and operation under different clock ratios -
 Coverage of intended states, operations, data patterns, and cross
 scenarios
 
-> **Note:** This README summarizes the architecture and verification
-> plan shown in the supplied slides and testbench screenshots. Confirm
-> implementation details, simulator commands, and actual coverage
-> results against the current source code and simulation logs before
-> claiming final coverage closure.
