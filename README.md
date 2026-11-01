@@ -1,3 +1,4 @@
+
 # Asynchronous FIFO Design & Verification using SystemVerilog
 
 <p align="center">
@@ -24,6 +25,26 @@ The FIFO is verified using a class-based SystemVerilog testbench that combines d
 - Exercise pointer wraparound and simultaneous read/write operations.
 - Verify behavior under different write and read clock ratios.
 - Achieve functional coverage of important states, transitions, and corner cases.
+
+---
+
+## Architecture Diagrams
+
+### 1. RTL Design Architecture
+
+The following diagram illustrates the internal architecture of the asynchronous FIFO, including its memory, read and write pointers, Gray-code conversion, and clock-domain synchronization logic.
+
+<p align="center">
+  <img src="Design_Block.png" alt="Asynchronous FIFO RTL Design Block Diagram" width="850">
+</p>
+
+### 2. Verification Testbench Architecture
+
+The following diagram illustrates the class-based verification environment, showing the interaction between generators, drivers, monitors, interfaces, DUT, reference model, scoreboard, and functional coverage components.
+
+<p align="center">
+  <img src="testbench_architecture.png" alt="Asynchronous FIFO Verification Testbench Architecture" width="850">
+</p>
 
 ---
 
@@ -87,61 +108,6 @@ The asynchronous FIFO uses the following techniques:
 
 The testbench combines static SystemVerilog modules and interfaces with class-based verification components.
 
-```text
-                         +----------------------+
-                         |         TOP          |
-                         |  Clocks / Interfaces |
-                         |    Test Selection    |
-                         +----------+-----------+
-                                    |
-                         +----------v-----------+
-                         |         TEST         |
-                         | Directed / Random    |
-                         +----------+-----------+
-                                    |
-                         +----------v-----------+
-                         |         ENV          |
-                         +----------+-----------+
-                                    |
-                 +------------------+------------------+
-                 |                                     |
-        +--------v---------+                 +---------v--------+
-        |  WRITE CHANNEL   |                 |   READ CHANNEL   |
-        +------------------+                 +------------------+
-        | Write Generator  |                 | Read Generator  |
-        | Write Driver     |                 | Read Driver     |
-        | Write Monitor    |                 | Read Monitor    |
-        +--------+---------+                 +---------+--------+
-                 |                                     |
-        +--------v---------+                 +---------v--------+
-        |   Write Interface|                 |   Read Interface |
-        +--------+---------+                 +---------+--------+
-                 |                                     |
-                 +------------------+------------------+
-                                    |
-                         +----------v-----------+
-                         |          DUT         |
-                         |    Asynchronous FIFO |
-                         +----------------------+
-
-             Monitored transactions and observed FIFO activity
-                                    |
-                         +----------v-----------+
-                         |    Reference Model   |
-                         |   Queue-Based Model  |
-                         +----------+-----------+
-                                    |
-                         +----------v-----------+
-                         |      Scoreboard      |
-                         | Expected vs. Actual  |
-                         +----------------------+
-
-                         +----------------------+
-                         |  Functional Coverage |
-                         | States / Data / Ops  |
-                         +----------------------+
-```
-
 ### Verification Components
 
 | Component | Responsibility |
@@ -174,7 +140,7 @@ The testbench combines static SystemVerilog modules and interfaces with class-ba
 
 ---
 
-## 🧪 Verification Strategy
+## Verification Strategy
 
 The verification process follows a layered approach.
 
@@ -213,7 +179,7 @@ Long mixed-traffic sequences exercise repeated transitions between empty, partia
 
 ---
 
-## 📋 Directed Test Plan
+## Directed Test Plan
 
 The testbench supports the following 16 test scenarios.
 
@@ -278,7 +244,7 @@ Random testing should be combined with assertions, scoreboard checking, reproduc
 
 ---
 
-## 🛡️ Assertion-Based Verification
+## Assertion-Based Verification
 
 The RTL contains assertions grouped into six major categories.
 
@@ -342,7 +308,7 @@ The documented checks include:
 
 ---
 
-## 📊 Functional Coverage Plan
+## Functional Coverage Plan
 
 Functional coverage is used to measure whether important FIFO behaviors have been exercised.
 
@@ -412,6 +378,7 @@ The following file structure is based on the provided file list and component na
 
 ```text
 async_fifo_verif/
+│
 ├── rtl/
 │   └── async_fifo.sv
 │
@@ -424,6 +391,7 @@ async_fifo_verif/
 │   │   ├── fifo_tb_types_pkg.sv
 │   │   ├── fifo_tb_components_pkg.sv
 │   │   ├── fifo_tb_tests_pkg.sv
+│   │   │
 │   │   └── components/
 │   │       ├── fifo_env.sv
 │   │       ├── fifo_generator.sv
@@ -440,6 +408,9 @@ async_fifo_verif/
 │   │
 │   └── run/
 │       └── filelist.f
+│
+├── Design_Block.png
+├── testbench_architecture.png
 │
 └── README.md
 ```
@@ -566,4 +537,6 @@ The resulting verification environment also serves as a practical example of reu
 
 ---
 
-*Built with SystemVerilog and digital design verification methodologies.*
+<p align="center">
+  <em>Built with SystemVerilog and digital design verification methodologies.</em>
+</p>
